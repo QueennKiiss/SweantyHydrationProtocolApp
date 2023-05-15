@@ -4,15 +4,19 @@
 
 {% set active_page='login' %}
 
+{% block link_css_file %}
+<link rel="stylesheet" href="{{ url_for('login.static', filename='login_style.css') }}">
+{% endblock%}
+
 {% block content %}
 <div class="login-card-container" style="padding-bottom:50px;">
-  <form action="/" method="post" class="flex-vertical" style="height: 100%; padding:20px">
+  <form action="/login" method="post" class="flex-vertical" style="height: 100%; padding:20px">
     <div class="login-fields-container">
       <img class="sweanty-login-logo" src="{{url_for('static', filename='images/logo_sweanty_1.png')}}" alt="Company logo (SWEANTY)" width="370px" height="200px">
     </div>
     <div class="login-fields-container" style="display:flex; flex-direction: column;justify-content: space-between;">
-      <input class="input-field" type="text" name="username" placeholder="USERNAME">
-      <input class="input-field" type="password" name="password" placeholder="PASSWORD">
+      <input class="input-field" type="text" name="username" placeholder="USERNAME" style="font-size:1.5rem">
+      <input class="input-field" type="password" name="password" placeholder="PASSWORD" style="font-size:1.5rem">
     </div>
     <input class="login-button" type="submit" value="LOG IN" id="login">
   </form>
