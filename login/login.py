@@ -15,19 +15,26 @@ bp_login = Blueprint("login", __name__, static_folder='static', template_folder=
 
 @bp_login.route("/", methods=['POST', 'GET'])
 def login():
-    # if 'username' in session:
-    #     return f'Logged in as {session["username"]}'
+    """ Method for App login. It will show login page or redirect to hydration
+    page if user logged
+    """
     if request.method == 'POST':
-        # session['username'] = request.form["username"]
+        # get the typed username in the username form field
+        current_user_name = request.form['username']
+        # store previous username to app sessions. If the web browser is closed
+        # sessions are removed
+        session['user'] = current_user_name
         # relative path to the method. If the method is in another module, use
         # "blueprint_name.method_name" to call required path
-        return redirect(url_for("hydration_protocol.hydration_protocol_app"))
-    else:
-        return render_template("login.html")
+        return redirect(url_for("hydration_protocol.hydration_protocol_app", current_user=session['user']))
+    if 'user' in session:
+        return redirect(url_for("hydration_protocol.hydration_protocol_app", current_user=session['user']))
+    return render_template("login.html")
 
 
-# @bp_login.route('/logout')
-# def logout():
-#     # remove the username from the session if it's there
-#     session.pop('username', None)
-#     return redirect(url_for('login'))
+@bp_login.route('/logout')
+def logout():
+    # remove the current user from the session if it's there and redirect to
+    # the login page for a new user logging.
+    session.pop('user', None)
+    return redirect(url_for('login.login'))
