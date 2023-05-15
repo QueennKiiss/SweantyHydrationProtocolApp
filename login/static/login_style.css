@@ -1,0 +1,41 @@
+
+.login-card-container {
+	background-color:rgba(245.00000059604645, 245.00000059604645, 245.00000059604645, 1);
+	width:451px;
+	height:565px;
+	position:absolute;
+	left:35%;
+	top:25%;
+	border-radius:25px;
+}
+.sweanty-login-logo {
+    width:370px
+	height:150px;
+}
+.login-fields-container {
+	width:358.5px;
+	height:146px;
+}
+.input-field {
+	width:358px;
+	height:65px;
+    background-color:rgba(255, 255, 255, 1);
+	border-radius:10px;
+	font-size: 10rem;
+}
+.input-field::placeholder {
+  color: grey;
+  font-size: 1.5rem;
+}
+.login-button {
+	box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25);
+	background-color:rgba(51.52682349085808, 115.95031455159187, 120.06249949336052, 1);
+	width:174px;
+	height:70px;
+	border-radius:15px;
+	color:rgba(255, 255, 255, 1);
+    font-family:Inter;
+	text-align:center;
+	font-size:25px;
+	letter-spacing:0;
+}
