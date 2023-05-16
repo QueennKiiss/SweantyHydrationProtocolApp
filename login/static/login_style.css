@@ -1,11 +1,13 @@
 
 .login-card-container {
 	background-color:rgba(245.00000059604645, 245.00000059604645, 245.00000059604645, 1);
-	width:451px;
-	height:565px;
+	--width:451px;
+	--height:565px;
+	width:var(--width);
+	height:var(--height);
 	position:absolute;
-	left:35%;
-	top:25%;
+	left:calc(50% - var(--width)/2 );
+	top:calc(50% - var(--height)/2);
 	border-radius:25px;
 }
 .sweanty-login-logo {
