@@ -4,8 +4,20 @@
 
 {% set active_page='hydration' %}
 
+{% block link_css_file %}
+<link rel="stylesheet" href="{{ url_for('hydration_protocol.static', filename='hydration_protocol.css') }}">
+{% endblock%}
+
 {% block content %}
-<div style="width:100%; position:absolute; left:0%; top:0%; background:green, padding:auto">
-    <img class="center" src="{{url_for('static', filename='images/logo_lletra3.png')}}" alt="Company logo (SWEANTY)">
+<div class="flex-vertical">
+    <div style="width:100%;">
+        <img class="center" src="{{url_for('static', filename='images/logo_lletra3.png')}}" alt="Company logo (SWEANTY)">
+    </div>
+    <div class="flex-vertical" style="width: 100%; align-items: center;">
+        <p> Welcome {{ current_user}} </p>
+        <form action="/login/logout" method="post">
+            <input class="logout-btn" type="Submit" id="logout-btn" value="LOGOUT">
+        </form>
+    </div>
 </div>
 {% endblock %}
