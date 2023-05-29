@@ -21,6 +21,7 @@ def login():
     if request.method == 'POST':
         # get the typed username in the username form field
         current_user_name = request.form['username']
+        user_password = request.form['password']
         if not current_user_name:
             return render_template("login.html")
 
