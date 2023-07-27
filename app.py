@@ -1,5 +1,9 @@
 """
-Main module to be executed when deployment
+Main module to be executed when deployment.
+
+Manually, it can be executed with:
+ 
+    -flask --app app run --debug
 """
 
 from flask import Flask
